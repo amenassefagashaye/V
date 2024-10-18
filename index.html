@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMEN-GOGS</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            box-sizing: border-box;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 5px solid red;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 1000px;
+            box-sizing: border-box;
+            animation: borderAnimation 5s infinite;
+        }
+        @keyframes borderAnimation {
+            0% { border-color: red; }
+            50% { border-color: yellow; }
+            100% { border-color: green; }
+        }
+        h1, h2 {
+            margin: 10px;
+            font-weight: bold;
+            animation: motionAnimation 5s infinite;
+        }
+        h1 { font-size: 2.5em; color: black; }
+        h2 { font-size: 2em; color: black; }
+        @keyframes motionAnimation {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            background-color: red;
+            border: 3px solid green;
+            border-radius: 50px;
+            animation: glow 2s infinite alternate;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px green; }
+            100% { box-shadow: 0 0 20px yellow; }
+        }
+        img {
+            width: 100%;
+            height: 200px; /* Reduced image height */
+            object-fit: cover; /* Ensures the image covers the space properly */
+            margin: 20px 0;
+        }
+        .contact-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            background-color: blue;
+            border-radius: 30px;
+            margin: 10px;
+            animation: glow 2s infinite alternate;
+            text-decoration: none;
+        }
+        #countdown {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AMEN-GOGS</h1>
+        <h2>The right choice, the right place</h2>
+        
+        <!-- Get More Button -->
+        <a href="https://www.youtube.com/channel/UCLBivSEh30F44ptAAgEVRUA" class="button" id="getMoreBtn" onclick="startCountdown()">Get More Bonus</a>
+        
+        <!-- Image with Reduced Height -->
+        <img src="https://th.bing.com/th/id/OIP.sIMaRhEHogXQcRyPIRNyMQAAAA?rs=1&pid=ImgDetMain" alt="Center Image">
+        
+        <!-- Contact Information -->
+        <a href="tel:+251918203416" class="contact-button">+251918203416</a>
+        <a href="mailto:assefacn@gmail.com" class="contact-button">assefacn@gmail.com</a>
+        
+        <!-- Countdown -->
+        <div id="countdown"></div>
+    </div>
+
+    <script>
+        function startCountdown() {
+            let countdown = 15;
+            const countdownDisplay = document.getElementById("countdown");
+
+            // Open YouTube in a new tab and keep checking if the tab is closed
+            const newWindow = window.open("https://www.youtube.com/channel/UCLBivSEh30F44ptAAgEVRUA");
+
+            const interval = setInterval(() => {
+                countdownDisplay.textContent = "Redirecting in " + countdown + " seconds...";
+                countdown--;
+
+                if (countdown < 0 || newWindow.closed) {
+                    clearInterval(interval);
+                    window.location.href = "https://t.me/GOGSmore"; // Redirect to Telegram after YouTube interaction or countdown
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
